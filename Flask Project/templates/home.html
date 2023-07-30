@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="{{url_for('static' , filename='css/style1.css')}}">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="{{ url_for('main_page') }}" class="logo"><i class="fas fa-house"></i>MyHome</a>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<div class="home">
+
+   <section class="center">
+
+      <form action="/house" method="post">
+         <h3>find your perfect home</h3>
+
+         <div class="flex">
+            <div class="box">
+               <p>Overall Quality(Rating)<span>*</span></p>
+               <select name="OverallQual" class="input" placeholder="Choose Rating" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+               </select>
+            </div>
+           
+
+         <div class="box">
+            <p>External Quality <span>*</span></p>
+            <select name="ExterQual" class="input" required>
+               <option value="1">Below Average</option>
+               <option value="2">Average</option>
+               <option value="3">Above Average</option>
+               <option value="4">Good</option>
+            </select>
+         </div>
+
+         <div class="box">
+            <p>Basement Quality <span>*</span></p>
+            <select name="BsmtQual" class="input" required>
+               <option value="0">Below Average</option>
+               <option value="1">Average</option>
+               <option value="2">Above Average</option>
+               <option value="3">Good</option>
+               <option value="4">Very Good</option>
+            </select>
+         </div>
+      </div>
+      <div class="box">
+         <p>LotArea<span>*</span></p>
+         <input type="number" name="LotArea" required maxlength="50" placeholder="sq ft" class="input">
+      </div>
+
+      <div class="box">
+         <p>Ground Living Area <span>*</span></p>
+         <input type="number" name="GrLivArea" required maxlength="50" placeholder="sq ft" class="input">
+      </div>
+
+      <div class="box">
+         <p>Garage Area <span>*</span></p>
+         <input type="number" name="GarageArea" required maxlength="50" placeholder="sq ft" class="input">
+      </div>
+
+      <div class="box">
+         <p>Total Basement Area <span>*</span></p>
+         <input type="number" name="TotalBsmtSF" required maxlength="50" placeholder="sq ft" class="input">
+      </div>
+
+      <div class="box">
+         <p>Total Room Above Ground <span>*</span></p>
+         <select name="TotRmsAbvGrd" class="input" required>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+         </select>
+      </div>
+
+         <div class="box">
+            <p>Enter build year <span>*</span></p>
+            <input type="number" name="YearBuilt" required maxlength="50" placeholder="Year" class="input">
+         </div>
+
+         <input type="submit" value="search property" name="SalePrice" class="btn"> <br>
+         <center>
+            <div class="result">
+               {{ result }}
+            </div>
+         </center>
+      </form>
+
+   </section>
+</div>
+
+</body>
+</html>
